@@ -2,7 +2,7 @@
 %define		ver		1.1
 %define 	apxs		/usr/sbin/apxs
 Summary:	Apache module: execution of scripts under their own uids
-Summary(pl):	Modu³ do apache: wykonywanie skryptow pod wskazanym uidem
+Summary(pl):	Modu³ do apache: wykonywanie skryptów pod wskazanym uidem
 Name:		apache-mod_%{mod_name}
 Version:	%{ver}
 Release:	0.1
@@ -20,10 +20,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
 
 %description
-Apache module: execution of scripts under their own uids per-vhost
+Apache module: execution of scripts under their own uids per-vhost.
 
 %description -l pl
-Modu³ do apache: wykonywanie skryptow pod wskazanym uidem per-vhost
+Modu³ do apache: wykonywanie skryptów pod wskazanym uidem per-vhost.
 
 %prep
 %setup -q -n mod_%{mod_name}-%{version}
