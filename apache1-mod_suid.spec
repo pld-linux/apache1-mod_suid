@@ -1,21 +1,21 @@
 %define		mod_name	suid
-%define		ver		1.1
-%define 	apxs		/usr/sbin/apxs
+%define 	apxs		/usr/sbin/apxs1
 Summary:	Apache module: execution of scripts under their own uids
 Summary(pl):	Modu³ do apache: wykonywanie skryptów pod wskazanym uidem
-Name:		apache-mod_%{mod_name}
-Version:	%{ver}
-Release:	0.1
+Name:		apache1-mod_%{mod_name}
+Version:	1.1
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.jdimedia.nl/igmar/mod_%{mod_name}/files/mod_%{mod_name}-%{version}.tar.gz
 # Source0-md5:	1e47d40d8f0404d9faa3040655df44a2
-URL:		http://www.jdimedia.nl/igmar/mod_%{mod_name}/
+URL:		http://www.jdimedia.nl/igmar/mod_suid/
 BuildRequires:	%{apxs}
-BuildRequires:	apache-devel
+BuildRequires:	apache1-devel
 BuildRequires:	zlib-devel
 Requires(post,preun):	%{apxs}
-Requires:	apache
+Requires:	apache1
+Obsoletes:	apache-mod_%{mod_name} <= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
@@ -43,15 +43,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %{apxs} -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-if [ -f /var/lock/subsys/httpd ]; then
-	/etc/rc.d/init.d/httpd restart 1>&2
+if [ -f /var/lock/subsys/apache ]; then
+	/etc/rc.d/init.d/apache restart 1>&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
 	%{apxs} -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-	if [ -f /var/lock/subsys/httpd ]; then
-		/etc/rc.d/init.d/httpd restart 1>&2
+	if [ -f /var/lock/subsys/apache ]; then
+		/etc/rc.d/init.d/apache restart 1>&2
 	fi
 fi
 
