@@ -4,7 +4,7 @@ Summary:	Apache module: execution of scripts under their own uids
 Summary(pl):	Modu³ do apache: wykonywanie skryptów pod wskazanym uidem
 Name:		apache1-mod_%{mod_name}
 Version:	1.1
-Release:	1.1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.jdimedia.nl/igmar/mod_%{mod_name}/files/mod_%{mod_name}-%{version}.tar.gz
