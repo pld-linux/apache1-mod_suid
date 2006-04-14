@@ -15,7 +15,7 @@ BuildRequires:	apache1-devel >= 1.3.33-2
 BuildRequires:	zlib-devel
 Requires(triggerpostun):	%{apxs}
 Requires:	apache1 >= 1.3.33-2
-Obsoletes:	apache-mod_%{mod_name} <= %{version}
+Obsoletes:	apache-mod_%{mod_name} <= 1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
