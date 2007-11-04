@@ -10,8 +10,7 @@ Group:		Networking/Daemons
 Source0:	http://www.jdimedia.nl/igmar/mod_%{mod_name}/files/mod_%{mod_name}-%{version}.tar.gz
 # Source0-md5:	1e47d40d8f0404d9faa3040655df44a2
 URL:		http://www.jdimedia.nl/igmar/mod_suid/
-BuildRequires:	apache1-apxs
-BuildRequires:	apache1-devel >= 1.3.33-2
+BuildRequires:	apache1-devel >= 1.3.39
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	zlib-devel
 Requires(triggerpostun):	%{apxs}
